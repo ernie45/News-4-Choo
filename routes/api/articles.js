@@ -12,6 +12,8 @@ router.route("/")
 .get((req, res) => {
     /** Use request to load up the nytimes site */
     request("https://www.nytimes.com/", (error, response, html) => {
-        
+
     });
-})
+});
+
+module.exports = router;
