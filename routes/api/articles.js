@@ -6,6 +6,11 @@ const request = require("request");
 /** Require cheerio for parsing the website */
 const cheerio = require("cheerio");
 
+/** Create a connection to the MongoDB */
+const mongoose = require("mongoose");
+mongoose.Promise = Promise;
+/** Construct the Mongo client */
+
 /** Construct the routings */
 router.route("/")
 /** When receiving the root get request */
