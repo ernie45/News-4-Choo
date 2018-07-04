@@ -49,5 +49,14 @@ module.exports = {
             /** So as to update the current view */
             res.redirect("/");
         });
+    },
+    deleteArticle: (req, res) => {
+        db.Article.findById({
+            _id: req.params.id
+        }).then(dbModel => {
+            dbModel.remove();
+        }).then(() => {
+            res.redirect("/");
+        });
     }
 };

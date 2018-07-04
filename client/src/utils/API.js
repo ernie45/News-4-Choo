@@ -7,8 +7,9 @@ export default {
         return axios.get("/api/articles");
     },
     saveArticle: id => {
-        return axios.put("/api/articles/" + id).then(() => {
-            console.log("Updating");
-        });
+        return axios.put("/api/articles/" + id);
+    },
+    deleteArticle: id => {
+        return axios.delete("/api/articles/" + id);
     }
 }

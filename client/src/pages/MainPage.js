@@ -24,8 +24,17 @@ class MainPage extends Component{
             this.setState({articles: res.data.reverse()});
         });
     };
+    /** We need to send the id along in order to save a unique article */
     saveArticle = id => {
         API.saveArticle(id).then(res => {
+            /** After saving refresh the articles to display a fresh view */
+            this.loadArticles();
+        });
+    };
+    /** Delete a unique article by its ID */
+    deleteArticle = id => {
+        /** Call the API to perform the delete request */
+        API.deleteArticle(id).then(res => {
             this.loadArticles();
         });
     };
@@ -38,7 +47,7 @@ class MainPage extends Component{
             return <Featured articles={this.state.articles} saveArticle={this.saveArticle}/>;
         }
         else if (this.state.currentPage === "Saved"){
-            return <Saved articles={this.state.articles}/>
+            return <Saved articles={this.state.articles} deleteArticle={this.deleteArticle}/>
         }
     }
     /** Main Function */

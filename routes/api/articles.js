@@ -20,6 +20,10 @@ router.route("/:id")
 /** When receiving the api/articles/:id put request */
 .put((req, res) => {
     articleController.saveArticle(req, res);
+})
+
+.delete((req, res) => {
+    articleController.deleteArticle(req, res);
 });
 
 module.exports = router;
