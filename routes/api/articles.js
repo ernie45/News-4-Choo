@@ -16,4 +16,10 @@ router.route("/")
     scrapeController.scrape(req, res);
 });
 
+router.route("/:id")
+/** When receiving the api/articles/:id put request */
+.put((req, res) => {
+    articleController.saveArticle(req, res);
+});
+
 module.exports = router;

@@ -21,7 +21,7 @@ const Featured = props =>
                                         <strong>{article.title}</strong>
                                     </a>
                                     <Button 
-                                        onClick={() => props.saveArticle(article.id)}
+                                        onClick={() => props.saveArticle(article._id)}
                                     >
                                         Save
                                     </Button>

@@ -24,13 +24,18 @@ class MainPage extends Component{
             this.setState({articles: res.data.reverse()});
         });
     };
+    saveArticle = id => {
+        API.saveArticle(id).then(res => {
+            this.loadArticles();
+        });
+    };
     /** Change the tab to the page passed in */
     handlePageChange = page => {
         this.setState({currentPage: page});
     };
     renderPage = () => {
         if (this.state.currentPage === "Featured"){
-            return <Featured articles={this.state.articles}/>;
+            return <Featured articles={this.state.articles} saveArticle={this.saveArticle}/>;
         }
         else if (this.state.currentPage === "Saved"){
             return <Saved articles={this.state.articles}/>

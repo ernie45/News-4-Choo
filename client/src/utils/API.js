@@ -5,5 +5,10 @@ export default {
     /** Send a GET request for all the articles */
     getArticles: () => {
         return axios.get("/api/articles");
+    },
+    saveArticle: id => {
+        return axios.put("/api/articles/" + id).then(() => {
+            console.log("Updating");
+        });
     }
 }

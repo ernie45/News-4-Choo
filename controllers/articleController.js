@@ -19,10 +19,12 @@ module.exports = {
             res.json(dbModel);
         }).catch(error => res.status(422).json(error));
     },
-    tryToCreate: function(req, res, title, url, summary) {
+    /** When trying to create, first check if article already exists */
+    tryToCreate: (req, res, title, url, summary) => {
         db.Article.findOne({
             title: title
-        }).then(function(data) {
+        }).then(data => {
+            /** If it does not exist, create a space for it in database */
             if (data === null || data.title !== title){
                 db.Article.create({
                     title: title,
@@ -32,5 +34,20 @@ module.exports = {
                 }).then(data => {});
             }
         })
+    },
+    /** Function to save articles using params from put request */
+    saveArticle: (req, res) => {
+        db.Article.update({
+            _id: req.params.id
+        }, 
+        {
+            $set: {
+                saved: true
+            }
+        }).then(dbModel => {
+            /** Upon saving, redirect to root page */
+            /** So as to update the current view */
+            res.redirect("/");
+        });
     }
 };
