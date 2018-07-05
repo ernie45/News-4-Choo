@@ -6,6 +6,7 @@ import Navpills from "../components/Navpills";
 import Featured from "./Featured";
 import Saved from "./Saved";
 import API from "../utils/API";
+import Jumbotron from "../components/Jumbotron";
 
 class MainPage extends Component{
     /** Define the state of the page */
@@ -55,6 +56,7 @@ class MainPage extends Component{
         return (
             <div>
                 <Container>
+                    <Jumbotron/>
                     <Navpills
                         handlePageChange={this.handlePageChange}
                         currentPage={this.state.currentPage}
