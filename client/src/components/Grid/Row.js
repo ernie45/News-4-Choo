@@ -1,5 +1,5 @@
 import React from "react";
 export const Row = ({fluid, children}) => 
-    <div className={`row${fluid ? "-fluid" : ""}`} style={{marginBottom: "100px"}}>
+    <div className={`row${fluid ? "-fluid" : ""}`}>
         {children}
     </div>
