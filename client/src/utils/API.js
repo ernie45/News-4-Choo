@@ -11,5 +11,8 @@ export default {
     },
     deleteArticle: id => {
         return axios.delete("/api/articles/" + id);
+    },
+    specificSearch: () => {
+        return axios.get("/api/articles/specificSearch");
     }
 }

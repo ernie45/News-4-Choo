@@ -7,6 +7,7 @@ const cheerio = require("cheerio");
 /** Bring in the database controllers */
 const articleController = require("../../controllers/articleController");
 const scrapeController = require("../../controllers/scrapeController");
+const specificSearchController = require("../../controllers/specificSearchController");
 
 /** Construct the routings */
 router.route("/")
@@ -24,6 +25,11 @@ router.route("/:id")
 
 .delete((req, res) => {
     articleController.deleteArticle(req, res);
+});
+
+router.route("/specificSearch")
+.get((req, res) => {
+    specificSearchController.specificSearch(req, res);
 });
 
 module.exports = router;

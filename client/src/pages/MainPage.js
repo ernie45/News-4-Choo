@@ -14,9 +14,6 @@ class MainPage extends Component{
     state = {
         articles: "",
         currentPage: "Featured",
-        topic: "",
-        startDate: "",
-        endDate: ""
     };
     /** Upon loading the page */
     componentDidMount = () =>{

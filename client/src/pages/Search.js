@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Row, Column} from "../components/Grid";
 import {Title, Input, Button} from "../components/Form";
+import API from "../utils/API";
 
 export class Search extends Component {
     constructor(props){
@@ -26,7 +27,9 @@ export class Search extends Component {
     };
     handleSearching = event => {
         event.preventDefault();
-            event.preventDefault();
+        API.specificSearch().then(data => {
+            console.log(data);
+        });
             /** Assure that a topic has been entered */
             // if (this.state.topic){
             //     /** Traverse the entire database */
@@ -47,7 +50,6 @@ export class Search extends Component {
             //         }
             //     }
             // };
-        console.log("Working now and again");
     }
     render(){
         return (
@@ -70,7 +72,7 @@ export class Search extends Component {
                 <Input
                     heading="End Year"
                     value={this.state.endDate}
-                    onChange={this.state.handleInputChange}
+                    onChange={this.handleInputChange}
                     name="endDate"
                 />
                 <Button
