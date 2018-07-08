@@ -25,31 +25,12 @@ export class Search extends Component {
             [name]: value
         });
     };
+    /** Function to handle searching specific parameters */
     handleSearching = event => {
         event.preventDefault();
-        API.specificSearch().then(data => {
-            console.log(data);
+        API.specificSearch(this.state).then(data => {
+            console.log(data.data.response.docs);
         });
-            /** Assure that a topic has been entered */
-            // if (this.state.topic){
-            //     /** Traverse the entire database */
-            //     for (var i = 0; i < this.state.articles.length; i++){
-            //         /** Capture a string within an article's title */
-            //         /** The RegExp is made to be able to handle a variable topic */
-            //         var matchedString = this.state.articles[i].title.match(new RegExp(this.state.topic, "gi"));
-            //         /** If there is a match created */
-            //         if (matchedString){
-            //             // console.log((new Date(this.state.articles[i].date)) <= (new Date("2019")));
-            //             if ((new Date(this.state.articles[i].date)) >= (new Date(this.state.startDate))
-            //                 && (new Date(this.state.articles[i].date)) <= (new Date(this.state.endDate))){
-            //                     console.log(this.state.articles[i]);
-            //             }
-            //             else{
-            //                 console.log("No match");
-            //             }
-            //         }
-            //     }
-            // };
     }
     render(){
         return (

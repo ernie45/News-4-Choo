@@ -12,7 +12,14 @@ export default {
     deleteArticle: id => {
         return axios.delete("/api/articles/" + id);
     },
-    specificSearch: () => {
-        return axios.get("/api/articles/specificSearch");
+    /** Take in special parameters to search */
+    specificSearch: searchParameters => {
+        return axios.get("/api/articles/specificSearch/", {
+            params: {
+                topic: searchParameters.topic,
+                startDate: searchParameters.startDate,
+                endDate: searchParameters.endDate
+            }
+        });
     }
 }
