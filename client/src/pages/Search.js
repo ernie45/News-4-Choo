@@ -14,11 +14,6 @@ export class Search extends Component {
             specificArticles: ""
         };
     };
-    componentDidUpdate = () => {
-        if (this.state.specificArticles.length){
-            console.log(this.state.specificArticles[0].blog);
-        }
-    };
     /** Change state variables as they're being typed */
     /** This function is event based; onChange */
     handleInputChange = event => {
