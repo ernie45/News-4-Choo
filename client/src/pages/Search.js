@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Row, Column} from "../components/Grid";
-import {Title, Input, Button} from "../components/Form";
+import {Title, Input, Button, SearchResults} from "../components/Form";
+import {List, Item} from "../components/List";
 import API from "../utils/API";
 
 export class Search extends Component {
@@ -9,8 +10,14 @@ export class Search extends Component {
         this.state = {
             topic: "",
             startDate: "",
-            endDate: ""
+            endDate: "",
+            specificArticles: ""
         };
+    };
+    componentDidUpdate = () => {
+        if (this.state.specificArticles.length){
+            console.log(this.state.specificArticles[0].blog);
+        }
     };
     /** Change state variables as they're being typed */
     /** This function is event based; onChange */
@@ -29,7 +36,9 @@ export class Search extends Component {
     handleSearching = event => {
         event.preventDefault();
         API.specificSearch(this.state).then(data => {
-            console.log(data.data.response.docs);
+            this.setState({
+                specificArticles: data.data.response.docs
+            });
         });
     }
     render(){
@@ -44,18 +53,21 @@ export class Search extends Component {
                     onChange={this.handleInputChange}
                     name="topic"
                 />
-                <Input
+                {/* <Input
                     heading="Start Year"
                     value={this.state.startDate}
                     onChange={this.handleInputChange}
                     name="startDate"
+                    placeholder="YYYYMMDD"
+                    type="Integer"
                 />
                 <Input
                     heading="End Year"
                     value={this.state.endDate}
                     onChange={this.handleInputChange}
                     name="endDate"
-                />
+                    placeholder="YYYYMMDD"
+                /> */}
                 <Button
                     disabled={!this.state.topic}
                     onClick={this.handleSearching}
@@ -63,6 +75,33 @@ export class Search extends Component {
                     Search
                 </Button>
             </Column>
+            <SearchResults>
+                {this.state.specificArticles.length ? (
+                    <List>
+                        {this.state.specificArticles.map(article => {
+                            return(
+                                <Item>
+                                    <Row>
+                                        <a href={article.web_url}>
+                                            <strong>{article.snippet}</strong>
+                                        </a>
+                                        <Button 
+                                            // onClick={() => this.saveArticle(article._id)}
+                                        >
+                                            Save
+                                        </Button>
+                                    </Row>
+                                    <Row>
+                                        <p>{article.snippet}</p>
+                                    </Row>
+                                </Item>
+                            )
+                        })}
+                    </List>
+                ): (
+                    <h1>...</h1>
+                )}
+            </SearchResults>
         </Row>
         );
     };
