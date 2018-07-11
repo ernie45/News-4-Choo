@@ -16,9 +16,7 @@ export default {
     specificSearch: searchParameters => {
         return axios.get("/api/articles/specificSearch/", {
             params: {
-                topic: searchParameters.topic,
-                startDate: searchParameters.startDate,
-                endDate: searchParameters.endDate
+                topic: searchParameters.topic
             }
         });
     }

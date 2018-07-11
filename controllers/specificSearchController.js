@@ -2,7 +2,6 @@ const request = require("request");
 module.exports = {
     specificSearch: (req, res) => {
         console.log(process.env.NYT_API_KEY);
-        console.log(NYT_API_KEY);
         request.get({
             url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
             qs: {
