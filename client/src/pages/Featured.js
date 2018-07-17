@@ -33,7 +33,7 @@ export class Featured extends Component {
                                 return (
                                     <Item>
                                         <Row>
-                                            <a href={article.url} target="blank">
+                                            <a href={article.url} target="_blank">
                                                 <strong>{article.title}</strong>
                                             </a>
                                             <Button 
