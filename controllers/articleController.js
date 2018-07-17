@@ -25,13 +25,13 @@ module.exports = {
             title: title
         }).then(data => {
             /** If it does not exist, create a space for it in database */
-            if (data === null || data.title !== title){
+            if (data === null){
                 db.Article.create({
                     title: title,
                     date: new Date(),
                     summary: summary,
                     url: url
-                }).then(data => {});
+                }).then(dat => {});
             }
         })
     },

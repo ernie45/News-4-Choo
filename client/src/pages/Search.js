@@ -31,7 +31,6 @@ export class Search extends Component {
     handleSearching = event => {
         event.preventDefault();
         API.specificSearch(this.state).then(data => {
-            console.log(data);
             this.setState({
                 specificArticles: data.data.response.docs
             });
