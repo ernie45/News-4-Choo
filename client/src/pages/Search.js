@@ -77,7 +77,7 @@ export class Search extends Component {
                             return(
                                 <Item>
                                     <Row>
-                                        <a href={article.web_url}>
+                                        <a href={article.web_url} target="blank">
                                             <strong>{article.snippet}</strong>
                                         </a>
                                         <Button 

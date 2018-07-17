@@ -34,7 +34,7 @@ export class Saved extends Component{
                                 return (
                                     <Item key={article._id}>
                                         <Row>
-                                            <a href={article.url}>
+                                            <a href={article.url} target="blank">
                                                 <strong>
                                                     {article.title}
                                                 </strong>
