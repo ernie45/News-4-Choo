@@ -14,6 +14,9 @@ export class Search extends Component {
             specificArticles: ""
         };
     };
+    saveArticle = () => {
+
+    };
     /** Change state variables as they're being typed */
     /** This function is event based; onChange */
     handleInputChange = event => {

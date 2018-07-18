@@ -47,7 +47,9 @@ class MainPage extends Component{
                     />
         }
         else if (this.state.currentPage === "Search"){
-            return <Search/>
+            return <Search
+                        saveArticle={this.saveArticle}
+                    />
         }
     }
     /** Main Function */

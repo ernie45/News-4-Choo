@@ -10,7 +10,7 @@ mongoose.connect(
     }
 );
 
-module.exports = {
+const articleController = {
     /** Search the database for all the  */
     findAll: (req, res) => {
         db.Article.find(req.query).sort({
@@ -27,10 +27,10 @@ module.exports = {
             /** If it does not exist, create a space for it in database */
             if (data === null){
                 db.Article.create({
-                    title: title,
-                    date: new Date(),
-                    summary: summary,
-                    url: url
+                    "title": title,
+                    "date": new Date(),
+                    "summary": summary,
+                    "url": url
                 }).then(dat => {});
             }
         })
@@ -60,3 +60,5 @@ module.exports = {
         });
     }
 };
+
+module.exports = articleController;
