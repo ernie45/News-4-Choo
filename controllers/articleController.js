@@ -17,7 +17,6 @@ const articleController = {
             date: -1
         }).then(dbModel => {
             res.json(dbModel);
-            console.log(dbModel);
         }).catch(error => res.status(422).json(error));
     },
     /** When trying to create, first check if article already exists */
@@ -32,9 +31,7 @@ const articleController = {
                     "date": new Date(),
                     "summary": summary,
                     "url": url
-                }).then(dat => {
-                    console.log(dat);
-                });
+                }).then(dat => {});
             }
         })
     },

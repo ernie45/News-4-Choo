@@ -51,7 +51,7 @@ export class Search extends Component {
                     onChange={this.handleInputChange}
                     name="topic"
                 />
-                {/* <Input
+                <Input
                     heading="Start Year"
                     value={this.state.startDate}
                     onChange={this.handleInputChange}
@@ -65,7 +65,7 @@ export class Search extends Component {
                     onChange={this.handleInputChange}
                     name="endDate"
                     placeholder="YYYYMMDD"
-                /> */}
+                />
                 <Button
                     disabled={!this.state.topic}
                     onClick={this.handleSearching}
