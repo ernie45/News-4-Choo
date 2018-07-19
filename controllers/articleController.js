@@ -20,14 +20,14 @@ const articleController = {
         }).catch(error => res.status(422).json(error));
     },
     /** When trying to create, first check if article already exists */
-    tryToCreate: (req, res, title, url, summary) => {
+    tryToCreate: (req, res, titl, url, summary) => {
         db.Article.findOne({
-            title: title
+            title: titl
         }).then(data => {
             /** If it does not exist, create a space for it in database */
-            if (data === null){
+            if (!data){
                 db.Article.create({
-                    "title": title,
+                    "title": titl,
                     "date": new Date(),
                     "summary": summary,
                     "url": url

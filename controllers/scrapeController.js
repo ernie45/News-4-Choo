@@ -16,7 +16,7 @@ module.exports = {
                 /** Point to the element's h2 child */
                 /** And point to the h2 child's child with a tag */
                 /** Refer to the associated text */
-                var title = $(this).children("h2").children("a").text() || $(this).children("p.summary").text();
+                var title = $(this).children("h2").children("a").text() || $(this).children("p.summary").text() || "no title";
                 /** Grab onto the respective url */
                 /** By doing same as before, but pointing to the href attribute in this case */
                 var url = $(this).children("h2").children("a").attr("href") || "no link";
