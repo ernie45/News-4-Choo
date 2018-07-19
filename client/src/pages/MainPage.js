@@ -23,7 +23,7 @@ class MainPage extends Component{
     loadArticles = () => {
         API.getArticles().then(res => {
             /** Reverse function will flip data around */
-            this.setState({articles: res.data.reverse()});
+            this.setState({articles: res.data});
         });
     };
     /** Change the tab to the page passed in */
